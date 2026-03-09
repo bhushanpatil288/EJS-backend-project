@@ -5,12 +5,21 @@ const userModel = mongoose.Schema({
     type: String, 
     require: true
   },
+  name:{
+    type: String,
+    require: true
+  },
   email:{
     type: String, 
-    require: true
+    require: true,
+    unique: true
   },
   age:{
     type: Number
+  },
+  password:{
+    type: String,
+    require: true
   },
   posts: [{
       type: mongoose.Schema.Types.ObjectId,
