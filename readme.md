@@ -21,5 +21,11 @@
 
 ### 🔐 Auth Routes
 **Base Path** `/auth` (All routes below are relative to this)
+
+#### Register
 * `GET /register` (Full endpoint: `/auth/register`)
-* `POST /register` (Full endpoint: `/auth/register`)
+* `POST /register`
+
+#### Login 
+* `GET /login` 
+* `POST /login`

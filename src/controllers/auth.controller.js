@@ -15,10 +15,10 @@ const genToken = (id)=>{
   )
 }
 
-const registerPage = async (req, res)=>{
+// registration
+const registerPage = (req, res)=>{
   res.render("register")
 }
-
 const register = async (req, res)=>{
   let { username, name, email, age, password } = req.body;
   let userExists = await userModel.findOne({username});
@@ -44,4 +44,26 @@ const register = async (req, res)=>{
   res.send("registered")
 }
 
-module.exports = { registerPage, register }
+
+// login 
+const loginPage = (req, res)=>[
+  res.render("login")
+]
+const login = async (req, res)=>{
+  let { email, password } = req.body;
+
+  // if user is not found
+  let user = await userModel.findOne({email});
+  if(!user) return res.status(404).json({
+    message: "email or password is invalid"
+  })
+
+  let isPassValid = await bcrypt.compare(password, user.password);
+  if(!isPassValid) return res.status(404).json({
+     message: "email or password is invalid"
+  })
+  
+  res.send("You are logged in");
+}
+
+module.exports = { registerPage, register, loginPage, login }
