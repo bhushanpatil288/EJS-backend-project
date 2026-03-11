@@ -5,14 +5,14 @@
 ## Routes
 
 ### Healthcheck and entry point
-* `GET http://127.0.0.1:PORT/`
+* `GET /`
 
 
 ### 👱🏻 User Routes 
 **Base Path:** `/users` (All routes below are relative to this)
 
-#### Create User 
-* `POST /create` (Full endpoint: `/users/create`)
+#### User Profile 
+* `GET /profile` (Full endpoint: `/users/profile`)
 
 
 ### 📋 Post Routes
@@ -29,3 +29,6 @@
 #### Login 
 * `GET /login` 
 * `POST /login`
+
+#### Logout
+* `GET /logout`

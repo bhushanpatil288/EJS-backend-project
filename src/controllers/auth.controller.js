@@ -44,7 +44,6 @@ const register = async (req, res)=>{
   res.send("registered")
 }
 
-
 // login 
 const loginPage = (req, res)=>[
   res.render("login")
@@ -62,8 +61,15 @@ const login = async (req, res)=>{
   if(!isPassValid) return res.status(404).json({
      message: "email or password is invalid"
   })
-  
+
+  let token = genToken(user._id);
+  res.cookie("token", token)
   res.send("You are logged in");
 }
 
-module.exports = { registerPage, register, loginPage, login }
+const logout = (req, res)=>{
+  res.cookie("token", "");
+  res.redirect("login")
+}
+
+module.exports = { registerPage, register, loginPage, login, logout }
