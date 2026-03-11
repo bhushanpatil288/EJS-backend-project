@@ -1,10 +1,16 @@
 const mongoose = require("mongoose");
 
 const postModel = mongoose.Schema({
-  postdata:{
+  content:{
     type: String,
     require: true
   },
+  likes:[
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "user"
+    }
+  ],
   user:{
     type: mongoose.Schema.Types.ObjectId,
     ref: "user"
