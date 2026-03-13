@@ -17,6 +17,7 @@
 
 ### 📋 Post Routes
 **Base Path** `/posts` (All routes below are relative to this)
+* `GET /` (Full endpoint: `/posts/`)
 * `POST /create` (Full endpoint: `/posts/create`)
 
 ### 🔐 Auth Routes
