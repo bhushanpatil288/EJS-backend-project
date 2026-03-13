@@ -64,7 +64,7 @@ const login = async (req, res)=>{
 
   let token = genToken(user._id);
   res.cookie("token", token)
-  res.send("You are logged in");
+  res.redirect("/users/profile");
 }
 
 const logout = (req, res)=>{

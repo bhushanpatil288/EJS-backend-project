@@ -8,17 +8,20 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body class="bg-blue-200">
+<body class="bg-blue-50 flex items-center flex-col justify-center min-h-screen overflow-hidden">
   <div class="flex justify-center items-center my-10">
-    <h2 class="bg-gradient-to-tr from-blue-500 to-blue-800 text-white px-3 py-2 rounded-lg"> ✅ Site is up and running</h2>
+    <h2 class="bg-gradient-to-tr from-blue-400 to-blue-500 shadow px-3 py-1 rounded-md text-white"> ✅ Site is up and running</h2>
   </div>
   <div class="text-center">
-    <a href="/auth/register" class="cursor-pointer bg-blue-500 text-white px-3 py-1 rounded-md"><button
-        class="cursor-pointer">Register</button></a>
-    <a href="/auth/login" class="cursor-pointer bg-blue-500 text-white  px-3 py-1 rounded-md"><button
-        class="cursor-pointer">Login</button></a>
-    <a href="/users/profile" class="cursor-pointer bg-blue-500 text-white  px-3 py-1 rounded-md"><button
-        class="cursor-pointer">User profile</button></a>
+    <a href="/auth/register">
+      <button class="bg-gradient-to-tr from-blue-400 to-blue-500 shadow px-3 py-1 rounded-md cursor-pointer text-white hover:scale-110 active:scale:95 transition-all transition-duration-300">Register</button>
+    </a>
+    <a href="/auth/login">
+      <button class="bg-gradient-to-tr from-blue-400 to-blue-500 shadow px-3 py-1 rounded-md cursor-pointer text-white hover:scale-110 active:scale:95 transition-all transition-duration-300">Login</button>
+    </a>
+    <a href="/users/profile">
+      <button class="bg-gradient-to-tr from-blue-400 to-blue-500 shadow px-3 py-1 rounded-md cursor-pointer text-white hover:scale-110 active:scale:95 transition-all transition-duration-300">User profile</button>
+    </a>
   </div>
 </body>
 

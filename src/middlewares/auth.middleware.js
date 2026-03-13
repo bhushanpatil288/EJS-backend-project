@@ -6,7 +6,7 @@ const isLoggedIn = (req, res, next) =>{
     req.user = data;
     next();
   } else {
-    res.send("You first need to be logged in");
+    res.redirect("/auth/login")
   }
 }
 

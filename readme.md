@@ -31,4 +31,4 @@
 * `POST /login`
 
 #### Logout
-* `GET /logout`
+* `GET /logout` (protected: You can only logout if you are logged in)

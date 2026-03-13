@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile Card</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-blue-50 overflow-hidden">
+
+  <header class="flex justify-center">
+    <nav>
+      <ul class="flex gap-3">
+        <li class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer">
+          <a href="/">Home</a>
+        </li>
+        <li class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer">
+          <a href="/auth/register">Register</a>
+        </li>
+        <li class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer">
+          <a href="/auth/login">Login</a>
+        </li>
+        <li class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer">
+          <a href="/users/profile">Profile</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="flex items-start mt-10 justify-around min-h-screen">
+
+
+    <div class="flex flex-col items-center justify-center">
+      <div class="bg-white shadow-xl rounded-2xl p-8 w-80 border border-blue-100">
+
+        <!-- Avatar -->
+        <div class="flex justify-center">
+          <div
+            class="w-24 h-24 rounded-full bg-blue-500 flex items-center justify-center text-white text-3xl font-bold">
+            T
+          </div>
+        </div>
+
+        <!-- Name -->
+        <div class="text-center mt-4">
+          <h2 class="text-2xl font-semibold text-gray-800">
+            <%= user.name %>
+          </h2>
+          <p class="text-blue-500">@<%= user.username %>
+          </p>
+        </div>
+
+        <!-- Info -->
+        <div class="mt-6 space-y-3 text-sm">
+
+          <div class="flex justify-between">
+            <span class="text-gray-500">Email</span>
+            <span class="text-gray-700">
+              <%= user.email %>
+            </span>
+          </div>
+
+          <div class="flex justify-between">
+            <span class="text-gray-500">Age</span>
+            <span class="text-gray-700">
+              <%= user.age %>
+            </span>
+          </div>
+
+          <div class="flex justify-between">
+            <span class="text-gray-500">Posts</span>
+            <span class="text-gray-700">
+              <%= user.posts.length %>
+            </span>
+          </div>
+
+          <div class="flex justify-between">
+            <span class="text-gray-500">Joined</span>
+            <span class="text-gray-700">
+              <%= user.createdAt.toLocaleString().split(',')[0] %>
+            </span>
+          </div>
+
+        </div>
+
+        <!-- Button -->
+        <button class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition">
+          View Profile
+        </button>
+
+      </div>
+      <div>
+        <a href="/auth/logout">
+          <button class="mt-6 w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg transition px-3">
+            Logout
+          </button>
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <p>Your posts</p>
+      <div class="bg-white shadow-md rounded-lg p-6 w-96">
+        <% posts.forEach(post => { %>
+          <!-- Header -->
+          <div class="flex justify-between items-center mb-3">
+            <span class="font-semibold text-gray-800">@<%= user.username %></span>
+            <span class="text-sm text-gray-500"><%= post.createdAt.toLocaleString().split(',')[0] %></span>
+          </div>
+  
+          <!-- Title -->
+          <h2 class="text-lg font-bold text-gray-900 mb-2">
+            <%= post.title %>
+          </h2>
+  
+          <!-- Content -->
+          <p class="text-gray-700 text-sm leading-relaxed">
+            <%= post.content %>
+          </p>
+        <% }) %>
+
+
+      </div>
+
+    </div>
+
+    <div>
+      <form action="/posts/create" method="POST">
+        <label for="title">Post Title:</label><br>
+        <input type="text" id="title" name="postTitle" required class="w-full rounded-md outline-none px-3 py-1"
+          placeholder="Enter title"><br><br>
+
+        <label for="content">Post Content:</label><br>
+        <textarea id="content" name="postContent" rows="5" cols="40" required
+          class="w-full rounded-md outline-none px-3 py-1" placeholder="Enter Content"></textarea><br><br>
+
+        <input type="text" name="userId" value="<%= user._id %>" hidden>
+
+        <button
+          class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer"
+          type="submit">Publish Post</button>
+      </form>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
