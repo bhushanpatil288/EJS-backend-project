@@ -14,21 +14,19 @@
 <body class="bg-blue-50 overflow-hidden">
 
   <header class="flex justify-center">
-    <nav>
-      <ul class="flex gap-3">
-        <li class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer">
-          <a href="/">Home</a>
-        </li>
-        <li class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer">
-          <a href="/auth/register">Register</a>
-        </li>
-        <li class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer">
-          <a href="/auth/login">Login</a>
-        </li>
-        <li class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer">
-          <a href="/users/profile">Profile</a>
-        </li>
-      </ul>
+    <nav class="flex gap-3">
+        <a class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer" href="/">
+          <p>Home</p>
+        </a>
+        <a class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer" href="/auth/register">
+          <p>Register</p>
+        </a>
+        <a class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer" href="/auth/register">
+          <p>Login</p>
+        </a>
+        <a class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer" href="/users/profile">
+          <p>Profile</p>
+        </a>
     </nav>
   </header>
 
@@ -104,27 +102,29 @@
     </div>
 
     <div>
-      <p>Your posts</p>
-      <div class="bg-white shadow-md rounded-lg p-6 w-96">
-        <% posts.forEach(post => { %>
-          <!-- Header -->
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-semibold text-gray-800">@<%= user.username %></span>
-            <span class="text-sm text-gray-500"><%= post.createdAt.toLocaleString().split(',')[0] %></span>
+      <p class="text-center font-bold text-2xl mb-3">Your posts</p>
+      <div class="flex flex-col gap-2">
+        <% posts.forEach(post=> { %>
+          <div class="bg-white shadow-md rounded-lg p-6 w-96">
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-3">
+              <span class="font-semibold text-gray-800">@<%= user.username %></span>
+              <span class="text-sm text-gray-500">
+                <%= post.createdAt.toLocaleString().split(',')[0] %>
+              </span>
+            </div>
+
+            <!-- Title -->
+            <h2 class="text-lg font-bold text-gray-900 mb-2">
+              <%= post.title %>
+            </h2>
+
+            <!-- Content -->
+            <p class="text-gray-700 text-sm leading-relaxed">
+              <%= post.content %>
+            </p>
           </div>
-  
-          <!-- Title -->
-          <h2 class="text-lg font-bold text-gray-900 mb-2">
-            <%= post.title %>
-          </h2>
-  
-          <!-- Content -->
-          <p class="text-gray-700 text-sm leading-relaxed">
-            <%= post.content %>
-          </p>
-        <% }) %>
-
-
+          <% }) %>
       </div>
 
     </div>

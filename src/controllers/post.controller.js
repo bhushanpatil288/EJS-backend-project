@@ -10,13 +10,20 @@ const  createPost = async (req, res) =>{
 
   let postuser = await userModel.findOne({_id: userId});
 
-  console.log(post, postuser)
   postuser.posts.push(post._id);
 
   await post.save();
   await postuser.save();
 
-  res.redirect("profile");
+  res.redirect("/users/profile");
 }
 
-module.exports = { createPost }
+const showAllPosts = async (req, res)=>{
+  const posts = await postModel.find({}).populate({
+    path: "user",
+    select: "-password -age -email"
+  });
+  res.render("allPosts", {posts})
+}
+
+module.exports = { createPost, showAllPosts }

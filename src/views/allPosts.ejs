@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile Card</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-blue-50 overflow-hidden">
+
+  <header class="flex justify-center">
+    <nav>
+      <ul class="flex gap-3">
+        <li class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer">
+          <a href="/">Home</a>
+        </li>
+        <li class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer">
+          <a href="/auth/register">Register</a>
+        </li>
+        <li class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer">
+          <a href="/auth/login">Login</a>
+        </li>
+        <li class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer">
+          <a href="/users/profile">Profile</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="flex gap-3 items-stretch items-start mt-10 justify-center px-5 flex-wrap">
+    <% posts.forEach(post=>{ %>
+      <div class="w-full md:w-1/2 lg:w-1/4 border-blue-100 bg-white p-8 rounded-2xl shadow">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-3">
+          <span class="font-semibold text-gray-800">@<%= post.user.username %></span>
+          <span class="text-sm text-gray-500">
+            <%= post.createdAt.toLocaleString().split(',')[0] %>
+          </span>
+        </div>
+
+        <!-- Title -->
+        <h2 class="text-lg font-bold text-gray-900 mb-2">
+          <%= post.title %>
+        </h2>
+
+        <!-- Content -->
+        <p class="text-gray-700 text-sm leading-relaxed">
+          <%= post.content %>
+        </p>
+      </div>
+        <% }) %>
+  </div>
+
+
+
+</body>
+
+</html>

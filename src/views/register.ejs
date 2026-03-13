@@ -8,7 +8,23 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body class="bg-blue-50 flex items-center flex-col justify-center min-h-screen overflow-hidden">
+<body class="bg-blue-50 flex items-center flex-col justify-center overflow-hidden">
+    <header class="flex justify-center mb-15">
+    <nav class="flex gap-3">
+        <a class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer" href="/">
+          <p>Home</p>
+        </a>
+        <a class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer" href="/auth/register">
+          <p>Register</p>
+        </a>
+        <a class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer" href="/auth/register">
+          <p>Login</p>
+        </a>
+        <a class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer" href="/users/profile">
+          <p>Profile</p>
+        </a>
+    </nav>
+  </header>
   <h2 class="text-center text-3xl font-bold">Create an Account</h2>
   <div class="w-full min-h-screenpt-50 mt-30 flex justify-center">
     <form action="register" method="post" class="flex flex-col gap-3 items-center p-8 shadow rounded-2xl border-blue-100 justify-center bg-white">

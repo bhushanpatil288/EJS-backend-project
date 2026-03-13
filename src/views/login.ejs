@@ -9,9 +9,30 @@
 </head>
 
 <body class="bg-blue-50 flex items-center flex-col justify-center min-h-screen overflow-hidden">
+  <header class="flex justify-center">
+    <nav class="flex gap-3">
+      <a class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer"
+        href="/">
+        <p>Home</p>
+      </a>
+      <a class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer"
+        href="/auth/register">
+        <p>Register</p>
+      </a>
+      <a class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer"
+        href="/auth/register">
+        <p>Login</p>
+      </a>
+      <a class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition px-5 cursor-pointer"
+        href="/users/profile">
+        <p>Profile</p>
+      </a>
+    </nav>
+  </header>
   <h2 class="text-center text-3xl font-bold my-30">Create an Account</h2>
   <div class="w-full min-h-screen flex justify-center">
-    <form action="login" method="post" class="flex flex-col p-8 shadow rounded-2xl border-blue-100 gap-3 items-center h-100 justify-center bg-white">
+    <form action="login" method="post"
+      class="flex flex-col p-8 shadow rounded-2xl border-blue-100 gap-3 items-center h-100 justify-center bg-white">
       <div>
         <input class="bg-blue-50 outline-none px-3 border-2 border-blue-100 py-1 rounded-md" type="email" name="email"
           placeholder="Enter email">
@@ -29,7 +50,7 @@
         <a href="register"
           class="bg-gradient-to-tr from-blue-400 to-blue-500 shadow px-3 py-1 rounded-md cursor-pointer text-white hover:scale-110 active:scale:95 transition-all transition-duration-300">Register</a>
       </div>
-  </form>
+    </form>
   </div>
 </body>
 
